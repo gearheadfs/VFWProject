@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html> 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="Visual Frameworks: Assignment 1" />
+		<meta name="keywords" content="VFW, Assignment 1, Dave Johnson, 08/30/12" />
+		<meta name="robots" content="index, follow" />
+		<meta name="HandheldFriendly" content="true" />
+		<meta name="MobileOptimized" content="320" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<link href="css/styles.css" rel="stylesheet" type="text/css" />
+		<script src="js/main.js" type="text/javascript"></script>
+		<title>Dave Johnson Visual Frame Works: Assignment 1 08/30/12</title>
+	</head>
+	<body>
+		<h1>Place An Order</h1>
+		<form action="#" method="post">
+			<fieldset>
+				<legend>Contact Information</legend>
+				<ul>
+					<li><label form"firstname">First Name:</label><input type="text" id="firstname" /></li>
+					<li><label form"lastname">Last Name:</label><input type="text" id="lastname" /></li>
+					<li><label form"address">Address:</label><input type="text" id="address" /></li>
+					<li><label form"city">City:</label><input type="text" id="city" /></li>
+					<li><label form"state">State:</label>
+					<select id="state">
+						<option value="select">Select One</option>
+						<option value="AL">Alabama</option>
+						<option value="AK">Alaska</option>
+						<option value="AZ">Arizona</option>
+						<option value="AR">Arkansas</option>
+						<option value="CA">California</option>
+						<option value="CO">Colorado</option>
+						<option value="CT">Connecticut</option>
+						<option value="DE">Delaware</option>
+						<option value="FL">Florida</option>
+						<option value="GA">Georgia</option>
+						<option value="HI">Hawaii</option>
+						<option value="ID">Idaho</option>
+						<option value="IL">Illinois</option>
+						<option value="IN">Indiana</option>
+						<option value="IA">Iowa</option>
+						<option value="KS">Kansas</option>
+						<option value="KY">Kentucky</option>
+						<option value="LA">Louisiana</option>
+						<option value="ME">Maine</option>
+						<option value="MD">Maryland</option>
+						<option value="MA">Massachusetts</option>
+						<option value="MI">Michigan</option>
+						<option value="MN">Minnesota</option>
+						<option value="MS">Mississippi</option>
+						<option value="MO">Missouri</option>
+						<option value="MT">Montana</option>
+						<option value="NE">Nebraska</option>
+						<option value="NV">Nevada</option>
+						<option value="NH">New Hampshire</option>
+						<option value="NJ">New Jersey</option>
+						<option value="NM">New Mexico</option>
+						<option value="NY">New York</option>
+						<option value="NC">North Carolina</option>
+						<option value="ND">North Dakota</option>
+						<option value="OH">Ohio</option>
+						<option value="OK">Oklahoma</option>
+						<option value="OR">Oregon</option>
+						<option value="PA">Pennsylvania</option>
+						<option value="RI">Rhode Island</option>
+						<option value="SC">South Carolina</option>
+						<option value="SD">South Dakota</option>
+						<option value="TN">Tennessee</option>
+						<option value="TX">Texas</option>
+						<option value="UT">Utah</option>
+						<option value="VT">Vermont</option>
+						<option value="VA">Virginia</option>
+						<option value="WA">Washington</option>
+						<option value="WV">West Virginia</option>
+						<option value="WI">Wisconsin</option>
+						<option value="WY">Wyoming</option>
+						</select>
+					</li>
+					<li><label form"phnumber">Phone #:</label><input type="text" id="phnumber" placeholder="(123) 456-7890" /></li>
+				</ul>
+			</fieldset>
+		</form>
+		<form action="#" method="post">
+			<fieldset>
+				<legend>Pizza Order</legend>
+					<li>Choose Your Crust</li>
+						<ul>
+							<li><input type="radio" id="deepdsh" name="crust" /><label form"deepdsh">Deep Dish</label></li>
+							<li><input type="radio" id="thincrst" name="crust" /><label form"thincrst">Thin Crust</label></li>
+							<li><input type="radio" id="stfcrst" name="crust" /><label form"stfcrst">Stuffed Crust</label></li>
+							<li><input type="radio" id="nocrst" name="crust" /><label form"nocrst">No Crust</label></li>
+						</ul>
+					<li>Choose Your Toppings (Check all that apply)</li>
+						<ul>
+							<li><input type="checkbox" value"xtracheese" id="xtracheese" /><label for="xtracheese">Extra Cheese</label></li>
+							<li><input type="checkbox" value"pepperoni" id="pepperoni" /><label for="pepperoni">Pepperoni</label></li>
+							<li><input type="checkbox" value"bacon" id="bacon" /><label for="bacon">Bacon</label></li>
+							<li><input type="checkbox" value"onion" id="onion" /><label for="onion">Onion</label></li>
+							<li><input type="checkbox" value"grnpepper" id="grnpepper" /><label for="grnpepper">Green Pepper</label></li>
+							<li><input type="checkbox" value"mush" id="mush" /><label for="mush">Mushrooms</label></li>
+							<li><input type="checkbox" value"bbq" id="bbq" /><label for="bbq">Barbecue Sauce</label></li>
+							<li><input type="checkbox" value"spnch" id="spnch" /><label for="spnch">Spinach</label></li>
+							<li><input type="checkbox" value"alfredo" id="alfredo" /><label for="alfredo">Alfredo Sauce</label></li>
+							<li><input type="checkbox" value"chkn" id="chkn" /><label for="chkn">Grilled Chicken Strips*</label></li>
+							<li><input type="checkbox" value"bsauce" id="bsauce" /><label for="bsauce">Buffalo Sauce</label></li>
+							<li><input type="checkbox" value"rnch" id="rnch" /><label for="rnch">Ranch Dressing</label></li>
+							<li><input type="checkbox" value"blch" id="blch" /><label for="blch">Blue Cheese Dressing</label></li>
+							<br />*Additional $2.00
+						</ul>
+					<li>Quantity (20 Maximum)</li>
+							<input type="range" min="1" max="20" value="1" step="1"/>	
+					<li>Pick up or Delivery?</li>
+						<ul>
+							<li><input type="radio" id="pckup" name="method" /><label form"pckup">Pick Up</label></li>
+							<li><input type="radio" id="delvr" name="method" /><label form"delvr">Delivery</label</li>
+						</ul>	
+					<li>Please choose time of Pick Up or Time of Delivery</li>				
+						<li><label form"time">Time:</label>
+						<select id="time">
+							<option value="select">Select One</option>
+							<option value="1200">12:00PM</option>
+							<option value="1230">12:30PM</option>
+							<option value="100">1:00PM</option>
+							<option value="130">1:30PM</option>
+							<option value="200">2:00PM</option>
+							<option value="230">2:30PM</option>
+							<option value="300">3:00PM</option>
+							<option value="330">3:30PM</option>
+							<option value="400">4:00PM</option>
+							<option value="430">4:30PM</option>
+							<option value="500">5:00PM</option>
+							<option value="530">5:30PM</option>
+							<option value="600">6:00PM</option>
+							<option value="630">6:30PM</option>
+							<option value="700">7:00PM</option>
+							<option value="730">7:30PM</option>
+							<option value="800">8:00PM</option>
+							<option value="830">8:30PM</option>
+							<option value="900">9:00PM</option>
+							<option value="930">9:30PM</option>
+							<option value="1000">10:00PM</option>
+							<option value="1030">10:30PM</option>
+							<option value="1100">11:00PM</option>
+							<option value="1130">11:30PM</option>
+							<option value="0000">12:00AM</option>
+						</select>
+					<li><label for="notes">Special Notes:</label><textarea id="notes"></textarea></li>
+			</fieldset>
+				<input type ="submit" value="Place Order" />
+		</form>
+		<form method="link" action="index.html">
+			<input type="submit" value="Main">
+		</form>
+	
+	</body>
