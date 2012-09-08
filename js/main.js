@@ -1,8 +1,7 @@
 // Dave Johnson
-//09/08/12
-//Visual Frameworks 1209
-//Assignment 2
-
+// 09/08/12
+// Visual Frameworks 1209
+// Assignment 2
 
 //Wait until DOM is ready
 window.addEventListener("DOMContentLoaded", function(){
@@ -14,20 +13,20 @@ window.addEventListener("DOMContentLoaded", function(){
     }
     
     //Create select field element and populate with options
-    function makeStates(){
+    function chooseState(){
         var formTag = document.getElementsByTagName("form");
-        var selectLi = $("select");
-        var makeSelect = document.createElement("select");
-        makeSelect.setAttribute("id", "state");
+            selectLi = $('select');
+            makeSelect = document.createElement('select');
+            makeSelect.setAttribute("id", "state");
         for(var i=0, j=orderForm.length; i<j; i++){
-            var makeOption = document.createElement("option");
+            var makeOption = document.createElement('option');
             var optText = orderForm[i];
-            makeOption.setAttribute("value", optText)
+            makeOption.setAttribute("value", optText);
             makeOption.innerHTML = optText;
             makeSelect.appendChild(makeOption);
         }
-    selectLi.appendChild(makeSelect);
-}
+        selectLi.appendChild(makeSelect);
+    }
     
     //Find value of selected radio button
     function getSelectedRadio(){
@@ -64,7 +63,7 @@ window.addEventListener("DOMContentLoaded", function(){
             item.instruct   =["Special Instructions", $('specialInstructions').value];
         //Save data into local storage: Use stringify to convert object to a string
         localStorage.setItem(id, JSON.stringify(item));
-         alert("Your order has been placed. Thank you!");
+         alert("Thank you for your order.");
     }
     function getData(){
         //Write data from local storage to the browser.
@@ -96,10 +95,10 @@ window.addEventListener("DOMContentLoaded", function(){
                  "--Choose a State--",
                  "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
                  "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
-                ];
+                ],
         crustValue;
         toppingsValue = "None";
-        makeStates();
+        chooseState();
         
    
     
