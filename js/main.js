@@ -40,11 +40,90 @@ window.addEventListener("DOMContentLoaded", function(){
     }
 }
     function getCheckboxValue(){
+        if($('xtracheese').checked){
+            xtracheeseValue = $('xtracheese').value;
+            
+        }else{
+            xtracheeseValue = "None"
+        }
+        if($('pepperoni').checked){
+            pepperoniValue = $('pepperoni').value;
+            
+        }else{
+            pepperoniValue = "None"
+        }
+        if($('sausage').checked){
+            sausageValue = $('sausage').value;
+            
+        }else{
+            sausageValue = "None"
+        }
+        if($('bacon').checked){
+            baconValue = $('bacon').value;
+            
+        }else{
+            baconValue = "None"
+        }
+        if($('onion').checked){
+            onionValue = $('onion').value;
+            
+        }else{
+            onionValue = "None"
+        }
+        if($('grnpepper').checked){
+            grnpepperValue = $('grnpepper').value;
+            
+        }else{
+            grnpepperValue = "None"
+        }
+        if($('mush').checked){
+            mushValue = $('mush').value;
+            
+        }else{
+            mushValue = "None"
+        }
+        if($('bbq').checked){
+            bbqValue = $('bbq').value;
+            
+        }else{
+            bbqValue = "None"
+        }
+        if($('spnch').checked){
+            spnchValue = $('spnch').value;
+            
+        }else{
+            spnchValue = "None"
+        }
+        if($('alfredo').checked){
+            alfredoValue = $('alfredo').value;
+            
+        }else{
+            alfredoValue = "None"
+        }
+        if($('chkn').checked){
+            chknValue = $('chkn').value;
+            
+        }else{
+            chknValue = "None"
+        }
+        if($('bsauce').checked){
+            bsauceValue = $('bsauce').value;
+            
+        }else{
+            bsauceValue = "None"
+        }
         if($('rnch').checked){
             rnchValue = $('rnch').value;
+            
         }else{
             rnchValue = "None"
         }
+        if($('blch').checked){
+            blchValue = $('blch').value;
+            
+        }else{
+            blchValue = "None"
+        }      
     }
     
     function toggleControls(n){
@@ -80,11 +159,24 @@ window.addEventListener("DOMContentLoaded", function(){
             item.city       = ["City:", $('city').value];
             item.state      = ["State:", $('select').value];
             item.crust      = ["Crust:", crustValue];
-            item.rnch   = ["Ranch:", rnchValue];
+            item.xtracheese = ["Extra Cheese:", xtracheeseValue];
+            item.pepperoni  = ["Pepperoni:", pepperoniValue];
+            item.sausage    = ["Sausage:", sausageValue];
+            item.bacon      = ["Bacon:", baconValue];
+            item.onion      = ["Onion:", onionValue];
+            item.grnpepper  = ["Green Pepper:", grnpepperValue];
+            item.mush       = ["Mushrooms:", mushValue];
+            item.bbq        = ["Barbeque:", bbqValue];
+            item.spnch      = ["Spinach:", spnchValue];
+            item.alfredo    = ["Alfredo:", alfredoValue];
+            item.chkn       = ["Chicken:", chknValue];
+            item.bsauce     = ["Buffalo Sauce:", bsauceValue];
+            item.rnch       = ["Ranch:", rnchValue];
+            item.blch       = ["Blue Cheese:", blchValue];
             item.quantity   = ["Quantity", $('qty').value];
             item.deliver    = ["Pick Up Or Deliver:", methodValue];
             item.date       = ["Date:", $('date').value];
-            item.instruct   = ["Special Instructions", $('specialInstructions').value];
+            item.instruct   = ["Special Instructions:", $('specialInstructions').value];
         //Save data into local storage: Use stringify to convert object to a string
         localStorage.setItem(id, JSON.stringify(item));
          alert("Thank you for your order.");
@@ -93,6 +185,7 @@ window.addEventListener("DOMContentLoaded", function(){
         toggleControls('on');
         if(localStorage.length === 0){
             alert("There is no data in Local Storage.");
+            window.location.reload();
         }
         //Write data from local storage to the browser.
         var makeDiv = document.createElement('div');
@@ -100,7 +193,7 @@ window.addEventListener("DOMContentLoaded", function(){
         var makeList = document.createElement("ul");
         makeDiv.appendChild(makeList);
         document.body.appendChild(makeDiv);
-        $('items').style.display = "display";
+        $('items').style.display = "block";
         for(var i=0, len=localStorage.length; i<len; i++){
             var makeLi = document.createElement('li');
             makeList.appendChild(makeLi);
@@ -112,19 +205,20 @@ window.addEventListener("DOMContentLoaded", function(){
             makeLi.appendChild(makeSubList);
             for(var k in obj){
                 var makeSubLi = document.createElement('li');
-                makeSubList.appendchild(makeSubLi);
+                makeSubList.appendChild(makeSubLi);
                 var optSubText = obj[k][0]+" "+obj[k][1];
                 makeSubLi.innerHTML = optSubText;
-            }
+            }  
         }
     }
+    
    
     function clearLocal(){
         if (localStorage.length === 0){
             alert("There is no data to clear.")
         }else{
            localStorage.clear();
-           alert("Order is deleted.");
+           alert("Order(s) deleted.");
            window.location.reload();
            return false;
         }
@@ -137,7 +231,8 @@ window.addEventListener("DOMContentLoaded", function(){
                  "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
                 ],
         crustValue,
-        toppingsValue = "None";
+        toppingsValue = "None",
+        methodValue;
         chooseState();
         
         
