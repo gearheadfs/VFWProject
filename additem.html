@@ -15,7 +15,7 @@
 		<meta name="viewport" content="user-scalable=no, width=device-width" />
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script src="js/main.js" type="text/javascript"></script>
-		<title>Dave Johnson Visual Frame Works: Assignment 2 09/07/12</title>
+		<title>Dave Johnson Visual Frameworks: Assignment 2 09/07/12</title>
 	</head>
 	<body>
 		<header><h1>Place An Order</h1></header>
@@ -25,26 +25,28 @@
 			<a href="index.html" id="addNew" style="display:none;">Add New Item</a>
 		</nav>
 		<form action="#" method="post" id="info" name="order" />
-			<fieldset>
+			<fieldset id="orderForm">
 				<legend>Contact Information</legend>
 				<span>* fields are required</span>
+				<ul id="errors"></ul>
+				<ul id="questions"></ul>
 				<ul>
-					<li><label for="firstname">First Name:</label><input type="text" id="firstname" /></li>
-					<li><label for="lastname">Last Name:</label><input type="text" id="lastname" /></li>
-					<li><label for="address">Address:</label><input type="text" id="address" /></li>
-					<li><label for="city">City:</label><input type="text" id="city" /></li>
-					<li id="select"><label for="state">State:</label></li>
-					<li><label for="phnumber">Phone #:</label><input type="text" id="phnumber" placeholder="(123) 456-7890" /></li>
+					<li><label for="firstname">*First Name:</label><input type="text" id="firstname" /></li>
+					<li><label for="lastname">*Last Name:</label><input type="text" id="lastname" /></li>
+					<li><label for="address">*Address:</label><input type="text" id="address" /></li>
+					<li><label for="city">*City:</label><input type="text" id="city" /></li>
+					<li id="select"><label for="state">*State:</label></li>
+					<li><label for="phnumber">*Phone #:</label><input type="text" id="phnumber" placeholder="(123) 456-7890" /></li>
 				</ul>
 				<h3>Pizza Order</h3>
-				<span>Choose Your Crust</span>
+				<span>*Choose Your Crust</span>
 				<ul>
 					<li><input type="radio" id="deepdsh" name="crust" /><label for="deepdsh">Deep Dish</label></li>
 					<li><input type="radio" id="thincrst" name="crust" /><label for="thincrst">Thin Crust</label></li>
 					<li><input type="radio" id="stfcrst" name="crust" /><label for="stfcrst">Stuffed Crust</label></li>
 					<li><input type="radio" id="nocrst" name="crust" /><label for="nocrst">No Crust</label></li>
 				</ul>
-				<span>Choose Your Toppings (Check all that apply)</span>
+				<span>*Choose Your Toppings (Check all that apply)</span>
 				<ul>
 					<li><input type="checkbox" value"xtracheese" id="xtracheese" name="toppings" /><label for="xtracheese">Extra Cheese</label></li>
 					<li><input type="checkbox" value"pepperoni" id="pepperoni" name="toppings" /><label for="pepperoni">Pepperoni</label></li>
@@ -62,9 +64,9 @@
 					<li><input type="checkbox" value"blch" id="blch" name="toppings" /><label for="blch">Blue Cheese Dressing</label></li>
 					<br />*Additional $2.00
 				</ul>
-				<span>Quantity (20 Maximum)</span>
+				<span>*Quantity (20 Maximum)</span>
 					<input type="range" min="1" max="20" id="qty" /> <br />
-				<span>Pick up or Delivery?</span>
+				<span>*Pick up or Delivery?</span>
 				<ul>
 					<li><input type="radio" id="pckup" name="method" /><label for="pckup">Pick Up</label></li>
 					<li><input type="radio" id="delvr" name="method" /><label for="delvr">Delivery</label</li>
@@ -77,3 +79,4 @@
 		</form>
 		<a href="index.html">Main</a>
 	</body>
+</html>
