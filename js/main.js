@@ -13,11 +13,11 @@ window.addEventListener("DOMContentLoaded", function(){
     }
     
     //Create select field element and populate with options
-    function chooseState(){
+    function makeState(){
         var formTag = document.getElementsByTagName("form");
             selectLi = $('select');
             makeSelect = document.createElement('select');
-            makeSelect.setAttribute("id", "groups");
+            makeSelect.setAttribute("id", "states");
         for(var i=0, j=orderForm.length; i<j; i++){
             var makeOption = document.createElement('option');
             var optText = orderForm[i];
@@ -26,6 +26,15 @@ window.addEventListener("DOMContentLoaded", function(){
             makeSelect.appendChild(makeOption);
         }
         selectLi.appendChild(makeSelect);
+    }
+    
+    function getSelectedState(){
+        var stateSelected = document.forms[0].select;
+        for (var i=0; i<stateSelected.length; i++){
+            if (stateSelected[i].checked){
+                selectValue = stateSelected[i].value;
+            }
+        }
     }
     
     //Find value of selected radio button
@@ -166,7 +175,7 @@ window.addEventListener("DOMContentLoaded", function(){
             item.lastname   = ["Last Name:", $('lastname').value];
             item.address    = ["Address:", $('address').value];
             item.city       = ["City:", $('city').value];
-            item.state      = ["State:", $('select').value];
+            item.state      = ["State:", selectValue];
             item.phnumber   = ["Phone Number:", $('phnumber').value];
             item.crust      = ["Crust:", crustValue];
             item.xtracheese = ["Extra Cheese:", xtracheeseValue];
@@ -334,10 +343,19 @@ window.addEventListener("DOMContentLoaded", function(){
         }
         $('date').value = item.date[1];
         $('specialInstructions').value = item.instruct[1];
+        
+        //Remove the initial listener from the input button.
+        save.removeEventListener("click", storeData);
+        //Change Submit button value to say Edit
+        $('submit').value = "Edit Contact";
+        var editSubmit = $('submit');
+        //Save the key value established in this function as a propery of the editSubmit event
+        //so the value can be used when data is saved that was edited
+        editSubmit.addEventListener("click", validate);
+        editSubmit.key = this.key;
 
     }
     
-   
     function clearLocal(){
         if (localStorage.length === 0){
             alert("There is no data to clear.")
@@ -349,16 +367,89 @@ window.addEventListener("DOMContentLoaded", function(){
         }
     }
     
+     function validate(m){
+        //Define elements that need to be validated
+        var getFirstName = $('firstname');
+        var getLastName = $('lastname')
+        var getAddress = $('address');
+        var getCity = $('city');
+        var getState = $('select');
+        var getPhoneNumber = $('phnumber');
+        
+        //Reset Error Messages
+        errMsg.innerHTML = "";
+        getFirstName.style.border = "1px solid black";
+        getLastName.style.border = "1px solid black";
+        getAddress.style.border = "1px solid black";
+        getCity.style.border = "1px solid black";
+        getState.style.border = "1px solid black";
+        getPhoneNumber.style.border = "1px solid black";
+
+        
+        //Get error messages
+        var messageArray = [];
+        //Group validation
+        if(getFirstName.value === ""){
+            var firstNameError = "Please Enter Your First Name.";
+            getFirstName.style.border = "1px dashed red";
+            messageArray.push(firstNameError);
+        }
+        
+        if (getLastName.value === ""){
+            var lastNameError = "Please Enter Your Last Name.";
+            getLastName.style.border = "1px dashed red";
+            messageArray.push(lastNameError)
+        }
+        
+        if (getAddress.value === ""){
+            var addressError = "Please Enter Your Street Address.";
+            getAddress.style.border = "1px dashed red";
+            messageArray.push(addressError)
+        }
+        
+        if (getCity.value === ""){
+            var cityError = "Please Enter Your City.";
+            getCity.style.border = "1px dashed red";
+            messageArray.push(cityError);
+        }
+        
+        if (getState.value == "--Choose a State--"){
+            var stateError = "Please Provide Your State.";
+            getState.style.border = "1px dashed red";
+            messageArray.push(stateError);
+        }
+        //Telephone Validation using regex
+       var validTelephone = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        if (!(validTelephone.exec(getPhoneNumber.value))){
+            var telephoneError = "Please Enter a Valid Telephone Number.";
+            getPhoneNumber.style.border = "1px dashed red";
+            messageArray.push(telephoneError);
+    }
+    if(messageArray.length >= 1){
+        for(var i=0, j=messageArray.length; i < j; i++){
+            var txt = document.createElement('li');
+            txt.innerHTML = messageArray[i];
+            errMsg.appendChild(txt);
+        }
+        m.preventDefault();
+        return false;
+    }else{
+        storeData();
+    }
+}
+  
     //Variable defaults
     var orderForm = [
-                 "--Choose a State--",
-                 "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
-                 "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
-                ],
+                    "--Choose a State--",
+                    "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
+                    "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
+                    ],
+        selectValue,
         crustValue,
-        toppingsValue = "None",
-        methodValue;
-        chooseState();
+        methodValue
+        errMsg = $('errors');
+    
+    makeState();
         
         
    
@@ -371,7 +462,7 @@ window.addEventListener("DOMContentLoaded", function(){
     var clearLink = $('clear');
     clearLink.addEventListener("click", clearLocal);
     var save = $('submit');
-    save.addEventListener("click", storeData);
+    save.addEventListener("click", validate);
     
 
     
