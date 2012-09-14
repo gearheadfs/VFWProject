@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <!-- Dave Johnson
 	 Visual Frameworks 1209
-	 Assignment 2
-	 09/07/12-->
+	 Assignment 3
+	 09/13/12-->
 
 <html> 
 	<head>
 		<meta charset="utf-8" />
 		<meta name="description" content="Visual Frameworks: Assignment 2" />
-		<meta name="keywords" content="VFW, Assignment 2, Dave Johnson, 09/07/12" />
+		<meta name="keywords" content="VFW, Assignment 3, Dave Johnson, 09/13/12" />
 		<meta name="robots" content="index, follow" />
 		<meta name="HandheldFriendly" content="true" />
 		<meta name="MobileOptimized" content="320" />
 		<meta name="viewport" content="user-scalable=no, width=device-width" />
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script src="js/main.js" type="text/javascript"></script>
-		<title>Dave Johnson Visual Frameworks: Assignment 2 09/07/12</title>
+		<title>Dave Johnson Visual Frameworks: Assignment 3 09/13/12</title>
 	</head>
 	<body>
 		<header><h3 id="placeOrderTitle">Place An Order</h3></header>
@@ -34,42 +34,42 @@
 					<li><label for="firstname">First Name:*</label><input type="text" id="firstname" /></li>
 					<li><label for="lastname">Last Name:*</label><input type="text" id="lastname" /></li>
 					<li><label for="address">Address:*</label><input type="text" id="address" /></li>
-					<li><label for="city">*City:</label><input type="text" id="city" /></li>
-					<li id="select"><label for="state">State:*</label></li>
-					<li><label for="phnumber">*Phone #:</label><input type="text" id="phnumber" placeholder="(123) 456-7890" /></li>
+					<li><label for="city">City:*</label><input type="text" id="city" /></li>
+					<li value="select" id="select"><label for="state">State:*</label><br /></li>
+					<li><label for="phnumber">Phone #:*</label><input type="text" id="phnumber" placeholder="(123) 456-7890" /></li>
 				</ul>
 				<h4>Pizza Order</h4>
 				<span>Choose Your Crust</span>
 				<ul>
-					<li><input type="radio" id="deepdsh" name="crust" /><label for="deepdsh">Deep Dish</label></li>
-					<li><input type="radio" id="thincrst" name="crust" /><label for="thincrst">Thin Crust</label></li>
-					<li><input type="radio" id="stfcrst" name="crust" /><label for="stfcrst">Stuffed Crust</label></li>
-					<li><input type="radio" id="nocrst" name="crust" /><label for="nocrst">No Crust</label></li>
+					<li><input value="Deep Dish" type="radio" id="deepdsh" name="crust" /><label for="deepdsh">Deep Dish</label></li>
+					<li><input value="Thin Crust" type="radio" id="thincrst" name="crust" /><label for="thincrst">Thin Crust</label></li>
+					<li><input value="Stuffed Crust" type="radio" id="stfcrst" name="crust" /><label for="stfcrst">Stuffed Crust</label></li>
+					<li><input value="No Crust" type="radio" id="nocrst" name="crust" /><label for="nocrst">No Crust</label></li>
 				</ul>
 				<span>Choose Your Toppings (Check all that apply)</span>
 				<ul>
-					<li><input type="checkbox" value"xtracheese" id="xtracheese" name="toppings" /><label for="xtracheese">Extra Cheese</label></li>
-					<li><input type="checkbox" value"pepperoni" id="pepperoni" name="toppings" /><label for="pepperoni">Pepperoni</label></li>
-					<li><input type="checkbox" value"sausage" id="sausage" name="toppings" /><label for="sausuage">Sausage</label></input></li>
-					<li><input type="checkbox" value"bacon" id="bacon" name="toppings" /><label for="bacon">Bacon</label></li>
-					<li><input type="checkbox" value"onion" id="onion" name="toppings" /><label for="onion">Onion</label></li>
-					<li><input type="checkbox" value"grnpepper" id="grnpepper" name="toppings" /><label for="grnpepper">Green Pepper</label></li>
-					<li><input type="checkbox" value"mush" id="mush" name="toppings" /><label for="mush">Mushrooms</label></li>
-					<li><input type="checkbox" value"bbq" id="bbq" name="toppings" /><label for="bbq">Barbecue Sauce</label></li>
-					<li><input type="checkbox" value"spnch" id="spnch" name="toppings" /><label for="spnch">Spinach</label></li>
-					<li><input type="checkbox" value"alfredo" id="alfredo" name="toppings" /><label for="alfredo">Alfredo Sauce</label></li>
-					<li><input type="checkbox" value"chkn" id="chkn" name="toppings" /><label for="chkn">Grilled Chicken Strips*</label></li>
-					<li><input type="checkbox" value"bsauce" id="bsauce" name="toppings" /><label for="bsauce">Buffalo Sauce</label></li>
-					<li><input type="checkbox" value"rnch" id="rnch" name="toppings" /><label for="rnch">Ranch Dressing</label></li>
-					<li><input type="checkbox" value"blch" id="blch" name="toppings" /><label for="blch">Blue Cheese Dressing</label></li>
+					<li><input type="checkbox" value="Yes" id="xtracheese" name="toppings" /><label for="xtracheese">Extra Cheese</label></li>
+					<li><input type="checkbox" value="Yes" id="pepperoni" name="toppings" /><label for="pepperoni">Pepperoni</label></li>
+					<li><input type="checkbox" value="Yes" id="sausage" name="toppings" /><label for="sausuage">Sausage</label></input></li>
+					<li><input type="checkbox" value="Yes" id="bacon" name="toppings" /><label for="bacon">Bacon</label></li>
+					<li><input type="checkbox" value="Yes" id="onion" name="toppings" /><label for="onion">Onion</label></li>
+					<li><input type="checkbox" value="Yes" id="grnpepper" name="toppings" /><label for="grnpepper">Green Pepper</label></li>
+					<li><input type="checkbox" value="Yes" id="mush" name="toppings" /><label for="mush">Mushrooms</label></li>
+					<li><input type="checkbox" value="Yes" id="bbq" name="toppings" /><label for="bbq">Barbecue Sauce</label></li>
+					<li><input type="checkbox" value="Yes" id="spnch" name="toppings" /><label for="spnch">Spinach</label></li>
+					<li><input type="checkbox" value="Yes" id="alfredo" name="toppings" /><label for="alfredo">Alfredo Sauce</label></li>
+					<li><input type="checkbox" value="Yes" id="chkn" name="toppings" /><label for="chkn">Grilled Chicken Strips*</label></li>
+					<li><input type="checkbox" value="Yes" id="bsauce" name="toppings" /><label for="bsauce">Buffalo Sauce</label></li>
+					<li><input type="checkbox" value="Yes" id="rnch" name="toppings" /><label for="rnch">Ranch Dressing</label></li>
+					<li><input type="checkbox" value="Yes" id="blch" name="toppings" /><label for="blch">Blue Cheese Dressing</label></li>
 					<br />*Additional $2.00
 				</ul>
 				<span>Quantity (20 Maximum)</span>
-					<input type="range" min="1" max="20" id="qty" /> <br /><br />
+					<input value="" type="range" min="1" max="20" id="qty" /> <br /><br />
 				<span>Pick up or Delivery?</span>
 				<ul>
-					<li><input type="radio" id="pckup" name="method" /><label for="pckup">Pick Up</label></li>
-					<li><input type="radio" id="delvr" name="method" /><label for="delvr">Delivery</label</li>
+					<li><input value="Pick Up" type="radio" id="pckup" name="method" /><label for="pckup">Pick Up</label></li>
+					<li><input value="Delivery" type="radio" id="delvr" name="method" /><label for="delvr">Delivery</label</li>
 				</ul><br />
 					<label for="date">Date Added:</label><input type="date" id="date" /><br /><br />
 				<span>Special Instructions:</span>
