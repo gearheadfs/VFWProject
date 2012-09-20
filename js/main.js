@@ -1,7 +1,7 @@
 // Dave Johnson
-// 09/13/12
+// 09/19/12
 // Visual Frameworks 1209
-// Assignment 3
+// Assignment 4
 
 //Wait until DOM is ready
 window.addEventListener("DOMContentLoaded", function(){
@@ -29,12 +29,12 @@ window.addEventListener("DOMContentLoaded", function(){
     }
     
     function getSelectedState(){
-        var stateSelected = document.forms[0].select;
-        for (var i=0; i<stateSelected.length; i++){
+        var stateSelected = orderForm[i].text;
+        for (var i=0; i<orderForm.length; i++){
             if (stateSelected[i].checked){
-                selectValue = stateSelected[i].value;
+                selectValue = orderForm[i].text;
             }
-        }
+        } 
     }
     
     //Find value of selected radio button
@@ -163,8 +163,14 @@ window.addEventListener("DOMContentLoaded", function(){
         }
     }
     
-    function storeData(){
+    function storeData(key){
+        //If there is no key this means this is a new input item and needs a new key
+        if(!key){
         var id = Math.floor(Math.random()*10000000001);
+        }else{
+            //Sets id to existing key that's being edited so that it will be overwritten
+            id = key;
+        }
         // Gather up all form field values and store in an object
         //Object properties contain array with the form label and input value
         getSelectedRadioCrust();
@@ -175,7 +181,7 @@ window.addEventListener("DOMContentLoaded", function(){
             item.lastname   = ["Last Name:", $('lastname').value];
             item.address    = ["Address:", $('address').value];
             item.city       = ["City:", $('city').value];
-            item.state      = ["State:", selectValue];
+            item.state      = ["State:", selectText];
             item.phnumber   = ["Phone Number:", $('phnumber').value];
             item.crust      = ["Crust:", crustValue];
             item.xtracheese = ["Extra Cheese:", xtracheeseValue];
@@ -203,8 +209,8 @@ window.addEventListener("DOMContentLoaded", function(){
     function getData(){
         toggleControls('on');
         if(localStorage.length === 0){
-            alert("There is no data in Local Storage.");
-            window.location.reload();
+            alert("There is no data in Local Storage so dummy data was added.");
+            autoFillData();
         }
         //Write data from local storage to the browser.
         var makeDiv = document.createElement('div');
@@ -234,6 +240,16 @@ window.addEventListener("DOMContentLoaded", function(){
         }
     }
     
+    //Auto Populate Local Storage
+    function autoFillData(){
+        //The Actual JSON Object data required for this to work is coming from our json.js file which is loaded from additemHTML page
+        //Store the JSON data into Local Storage
+        for(var n in json){
+            var id = Math.floor(Math.random()*10000000001);
+            localStorage.setItem(id, JSON.stringify(json[n]));
+        }
+    }
+    
     //Make Item Links
     //Create the edit & delete links for each stored item when displayed
     function makeItemLinks(key, linksLi){
@@ -254,12 +270,13 @@ window.addEventListener("DOMContentLoaded", function(){
             deleteLink.href = "#";
             deleteLink.key = key;
             var deleteText = "Delete Order";
-            //deleteLink.addEventListener("click", deleteItem);
+            deleteLink.addEventListener("click", deleteItem);
             deleteLink.innerHTML = deleteText;
             linksLi.appendChild(deleteLink);
     }
     
     function editItem(){
+        var ask = confirm("Edit this order?");
         //Grab data from item from local storage
         var value = localStorage.getItem(this.key);
         var item = JSON.parse(value);
@@ -353,7 +370,18 @@ window.addEventListener("DOMContentLoaded", function(){
         //so the value can be used when data is saved that was edited
         editSubmit.addEventListener("click", validate);
         editSubmit.key = this.key;
-
+        /*editSubmit.onsubmit.alert("Order successfully updated.");*/
+    }
+    
+    function deleteItem(){
+        var ask = confirm("Are you sure you want to delete this order?");
+        if(ask){
+            localStorage.removeItem(this.key);
+            alert("Order successfully deleted.");
+            window.location.reload();
+        }else{
+            alert("Order has not been deleted.");    
+        }
     }
     
     function clearLocal(){
@@ -434,7 +462,7 @@ window.addEventListener("DOMContentLoaded", function(){
         m.preventDefault();
         return false;
     }else{
-        storeData();
+        storeData(this.key);
     }
 }
   
@@ -444,7 +472,8 @@ window.addEventListener("DOMContentLoaded", function(){
                     "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO",
                     "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
                     ],
-        selectValue,
+        getSelectedState,
+        selectText,
         crustValue,
         methodValue
         errMsg = $('errors');
@@ -463,6 +492,7 @@ window.addEventListener("DOMContentLoaded", function(){
     clearLink.addEventListener("click", clearLocal);
     var save = $('submit');
     save.addEventListener("click", validate);
+    
     
 
     
