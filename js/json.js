@@ -81,7 +81,7 @@ var json = {
         "rnch": ["Ranch:", "Yes"],
         "blch": ["Blue Cheese:", "None"],
         "qty": ["Qauntity:", "3"],
-        "method": ["Method:", "Deliver"],
+        "method": ["Method:", "Delivery"],
         "date": ["Date:", "2012-09-28"],
         "instruct": ["Special Instructions:", "Whenever."]
     },

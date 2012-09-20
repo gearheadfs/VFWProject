@@ -229,6 +229,7 @@ window.addEventListener("DOMContentLoaded", function(){
             var obj = JSON.parse(value);
             var makeSubList = document.createElement('ul');
             makeLi.appendChild(makeSubList);
+            getImage(obj.method[1], makeSubList);
             for(var k in obj){
                 var makeSubLi = document.createElement('li');
                 makeSubList.appendChild(makeSubLi);
@@ -238,6 +239,15 @@ window.addEventListener("DOMContentLoaded", function(){
             }
             makeItemLinks(localStorage.key(i), linksLi); //Creates edit and delete links for each list item in local storage
         }
+    }
+    
+    //Get the image for the right category
+    function getImage(getSelectedRadioMethod, makeSubList){
+        var imgLi = document.createElement('li');
+        makeSubList.appendChild(imgLi);
+        var newImg = document.createElement('img');
+        var setSource = newImg.setAttribute("src", "img/" + getSelectedRadioMethod + ".jpg");
+        imgLi.appendChild(newImg);
     }
     
     //Auto Populate Local Storage
